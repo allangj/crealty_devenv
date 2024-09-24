@@ -1,0 +1,9 @@
+.bash_history
+.cache/
+.conan/
+.config/
+.lesshst
+.local/
+.ssh/
+.viminfo
+.wget-hsts

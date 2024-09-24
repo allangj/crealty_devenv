@@ -1,0 +1,10 @@
+--- qtbase/src/corelib/global/qglobal.h	2024-09-24 03:41:18.803953628 +0000
++++ qtbase/src/corelib/global/qglobal.h	2024-09-24 03:41:44.004259173 +0000
+@@ -45,6 +45,7 @@
+ #  include <type_traits>
+ #  include <cstddef>
+ #  include <utility>
++#  include <limits>
+ #endif
+ #ifndef __ASSEMBLER__
+ #  include <assert.h>

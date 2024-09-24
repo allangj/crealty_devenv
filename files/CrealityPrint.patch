@@ -1,0 +1,43 @@
+diff --git a/kernel/BasicKernel/external/localnetworkinterface/materialboxmodellist.cpp b/kernel/BasicKernel/external/localnetworkinterface/materialboxmodellist.cpp
+index 64ef2c7..26479d5 100644
+--- a/kernel/BasicKernel/external/localnetworkinterface/materialboxmodellist.cpp
++++ b/kernel/BasicKernel/external/localnetworkinterface/materialboxmodellist.cpp
+@@ -5,6 +5,10 @@
+ #include "materialboxmodellist.h"
+ #include "Klipper4408Interface.h"
+ 
++#ifdef Q_OS_LINUX
++#include <cmath>
++#endif
++
+ using namespace creative_kernel;
+ 
+ struct Color {
+diff --git a/kernel/BasicKernel/internal/project_3mf/load3mf.cpp b/kernel/BasicKernel/internal/project_3mf/load3mf.cpp
+index 1b100e9..fdcd919 100644
+--- a/kernel/BasicKernel/internal/project_3mf/load3mf.cpp
++++ b/kernel/BasicKernel/internal/project_3mf/load3mf.cpp
+@@ -100,7 +100,7 @@ namespace creative_kernel
+         qtuser_core::VersionSettings setting;
+         QString lastPath = setting.value("dialogLastPath", "").toString();
+ #ifdef Q_OS_LINUX
+-        fileNames = QFileDialog::getOpenFileName(
++        fileName = QFileDialog::getOpenFileName(
+             nullptr, title,
+             lastPath, filter, nullptr, QFileDialog::DontUseNativeDialog);
+ #else
+diff --git a/plugins/plugin_usb_print/cxprinter/USBPrinterOutputDevice.cpp b/plugins/plugin_usb_print/cxprinter/USBPrinterOutputDevice.cpp
+index 50b118f..2d3094f 100644
+--- a/plugins/plugin_usb_print/cxprinter/USBPrinterOutputDevice.cpp
++++ b/plugins/plugin_usb_print/cxprinter/USBPrinterOutputDevice.cpp
+@@ -7,6 +7,10 @@
+ #include "USBPrinterOutputDevice.h"
+ #include "GenericOutputController.h"
+ 
++#ifdef Q_OS_LINUX
++#include <thread>
++#endif
++
+ USBPrinterOutputDevice::USBPrinterOutputDevice()
+ {
+ 	setName("USB printing");
